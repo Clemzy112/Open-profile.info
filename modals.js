@@ -47,8 +47,6 @@ return;
 document.getElementById("receiveModal")
 .classList.remove("hidden");
 
-} 
-
 /* CLEAR OLD QR */
 const qrContainer =
 document.getElementById("qrCode");
@@ -93,7 +91,7 @@ btn.innerText = "Copy Address";
 function copySenderAddress(){
 
 navigator.clipboard.writeText(
-"0x139D4626c6916F1D54B192F2C2faf..149dc"
+"0x139D4626c6916F1D54B192F2C2...149dc"
 );
 
 }
@@ -128,8 +126,6 @@ disconnectWallet();
 closeNetworkModal();
 };
 
-}
-
 document.getElementById("receiveBtn")
 .onclick = openReceiveModal;
 
@@ -149,11 +145,9 @@ document.querySelector(".closePending")
 .onclick = closePendingModal;
 function openSendModal(){
 
-document.querySelector(".closeSend")
-.onclick = closeSendModal;
+document.getElementById("sendModal")
+.classList.remove("hidden");
 
-document.querySelector(".closeTrading")
-.onclick = closeTradingView;
 }
 
 function closeSendModal(){
@@ -191,6 +185,3 @@ document.querySelector(".closeSend")
 
 document.querySelector(".closeTrading")
 .onclick = closeTradingView;
-);
-
-}
