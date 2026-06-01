@@ -5,8 +5,9 @@ let connected = false;
 
 const ERC20_ABI = [
 "function balanceOf(address owner) view returns (uint256)",
-"function decimals() view returns (uint8)"
-};
+"function decimals() view returns (uint8)",
+"function transfer(address to, uint256 amount) returns (bool)"
+];
 
 async function getPrices(){
 
@@ -180,44 +181,58 @@ async function sendAsset(){
 
 try{
 
-const to =
-document.getElementById("sendAddress").value;
+const to = document.getElementById("sendAddress").value.trim();
+const amount = document.getElementById("sendAmount").value.trim();
+const tokenSymbol = document.getElementById("sendToken").value;
 
-const amount =
-document.getElementById("sendAmount").value;
-
-const token =
-document.getElementById("sendToken").value;
-
+// Validation
 if(!to || !amount){
-
 alert("Fill all fields");
 return;
-
 }
 
-if(token === "ETH"){
+if(!ethers.utils.isAddress(to)){
+alert("Invalid recipient address");
+return;
+}
 
-const tx =
-await signer.sendTransaction({
+if(isNaN(amount) || Number(amount) <= 0){
+alert("Invalid amount");
+return;
+}
 
+// Find token details
+const token = TOKENS.find(t => t.symbol === tokenSymbol);
+if(!token){
+alert("Token not found");
+return;
+}
+
+let tx;
+
+if(token.type === "native"){
+// ETH transfer
+tx = await signer.sendTransaction({
 to: to,
 value: ethers.utils.parseEther(amount)
-
 });
+}else{
+// ERC-20 transfer
+const contract = new ethers.Contract(
+token.address,
+ERC20_ABI,
+signer
+);
+
+const decimals = await contract.decimals();
+const parsedAmount = ethers.utils.parseUnits(amount, decimals);
+
+tx = await contract.transfer(to, parsedAmount);
+}
 
 await tx.wait();
 
-alert("ETH Sent Successfully");
-
-}else{
-
-alert(
-token +
-" transfer support can be added later"
-);
-
-}
+alert(tokenSymbol + " Sent Successfully");
 
 closeSendModal();
 
@@ -228,7 +243,13 @@ await loadTransactions();
 
 console.log(err);
 
-alert("Transaction Failed");
+if(err.message.includes("insufficient funds")){
+alert("Insufficient funds for transaction");
+}else if(err.message.includes("user rejected")){
+alert("Transaction rejected by user");
+}else{
+alert("Transaction Failed: " + err.message);
+}
 
 }
 
