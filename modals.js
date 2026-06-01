@@ -47,6 +47,8 @@ return;
 document.getElementById("receiveModal")
 .classList.remove("hidden");
 
+} 
+
 /* CLEAR OLD QR */
 const qrContainer =
 document.getElementById("qrCode");
@@ -126,6 +128,8 @@ disconnectWallet();
 closeNetworkModal();
 };
 
+}
+
 document.getElementById("receiveBtn")
 .onclick = openReceiveModal;
 
@@ -185,3 +189,6 @@ document.querySelector(".closeSend")
 
 document.querySelector(".closeTrading")
 .onclick = closeTradingView;
+);
+
+}
