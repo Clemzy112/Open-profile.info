@@ -12,10 +12,8 @@ if(!connected){
 await connectWallet();
 }else{
 disconnectWallet();
+  
 }
-
-}
-);
 
 async function onConnected(){
 
