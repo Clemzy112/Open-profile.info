@@ -149,9 +149,11 @@ document.querySelector(".closePending")
 .onclick = closePendingModal;
 function openSendModal(){
 
-document.getElementById("sendModal")
-.classList.remove("hidden");
+document.querySelector(".closeSend")
+.onclick = closeSendModal;
 
+document.querySelector(".closeTrading")
+.onclick = closeTradingView;
 }
 
 function closeSendModal(){
