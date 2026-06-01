@@ -4,7 +4,7 @@ document.getElementById("connectBtn");
 const pendingBox =
 document.getElementById("pendingBox");
 
-connectBtn.addEventListener(
+connectBtn.addEventListener();
 "click",
 async ()=>{
 
