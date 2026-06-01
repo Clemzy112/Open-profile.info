@@ -261,16 +261,3 @@ height:500px;
 max-width:520px;
 margin:auto;
 }
-
-/* THEME WRAPPER */
-
-.appTheme{
-min-height:100vh;
-transition:0.35s ease;
-}
-
-/* TX LIST CARDS */
-
-#txList .card{
-background:#111111 !important;
-}
