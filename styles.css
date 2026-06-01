@@ -269,47 +269,6 @@ min-height:100vh;
 transition:0.35s ease;
 }
 
-/* DARK MODE */
-
-.appTheme.dark{
-background:#020617;
-}
-
-/* LIGHT MODE */
-
-.appTheme.light{
-background:#f3f4f6;
-}
-
-/* CONTENT AREA ONLY */
-
-.contentArea{
-transition:0.35s ease;
-}
-
-/* TEXT COLORS */
-
-.appTheme.dark .contentArea{
-color:#ffffff;
-}
-
-.appTheme.light .contentArea{
-color:#111827;
-}
-
-/* KEEP BOXES DARK ALWAYS */
-
-.card,
-.modal,
-.input,
-.actionBtn,
-.backBtn{
-
-background:#151515 !important;
-color:#ffffff !important;
-
-}
-
 /* TX LIST CARDS */
 
 #txList .card{
