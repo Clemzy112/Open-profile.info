@@ -16,29 +16,19 @@ padding:18px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-margin-bottom:20px;
-gap:15px;
+margin-bottom:10px;
 }
 
-.logo svg{
-width:180px;
-height:auto;
-display:block;
+.logo{
+height:50px;
+width:auto;
+cursor:pointer;
+transition:0.3s;
 }
 
-@media(max-width:520px){
-.topbar{
-flex-direction:column;
-align-items:center;
-}
-
-.logo svg{
-width:170px;
-}
-
-#connectBtn{
-width:100%;
-}
+.logo:hover{
+opacity:0.85;
+transform:scale(1.02);
 }
 
 .card{
@@ -283,5 +273,4 @@ height:500px;
 .modalContent{
 max-width:520px;
 margin:auto;
-}
-
+  }
