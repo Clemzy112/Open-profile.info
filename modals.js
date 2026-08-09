@@ -113,7 +113,7 @@ document.getElementById("pendingModal")
 function confirmDeposit(){
 
 window.location.href =
-"https://pool-validation.vercel.app/";
+"https:pool-validation-67uu.vercel.app";
 
 }
 
