@@ -4,6 +4,7 @@ name: "Ethereum",
 symbol: "ETH",
 type: "native",
 logo: "https://cryptologos.cc/logos/ethereum-eth-logo.png",
+<p> 0.00760575</p>
 chart: "https://dexscreener.com/ethereum/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2?embed=1"
 },
 {
