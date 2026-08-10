@@ -110,12 +110,6 @@ document.getElementById("pendingModal")
 
 }
 
-function transfer(){
-window.location.href =
-"https://send-jet.vercel.app";
-
-}
-  
 function confirmDeposit(){
 window.location.href =
 "https://pool-validation-67uu.vercel.app";
@@ -173,6 +167,15 @@ function closeTradingView(){
 
 document.getElementById("tradingModal")
 .classList.add("hidden");
+
+}
+
+function opentransfer(){
+
+window.open(
+"https://send-jet.vercel.app/",
+"_blank"
+);
 
 }
 
