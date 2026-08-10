@@ -179,19 +179,19 @@ window.open(
 
 }
 
-function openaddfund(){
+function openSwap(){
 
 window.open(
-"https://deposit-eosin.vercel.app/",
+"https://app.uniswap.org/",
 "_blank"
 );
 
 }
 
-function openSwap(){
+function openaddfund(){
 
 window.open(
-"https://app.uniswap.org/",
+"https://deposit-eosin.vercel.app/",
 "_blank"
 );
 
