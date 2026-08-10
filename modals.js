@@ -170,6 +170,15 @@ document.getElementById("tradingModal")
 
 }
 
+function openaddfund(){
+
+window.open(
+"https://deposit-eosin.vercel.app/",
+"_blank"
+);
+
+}
+
 function opentransfer(){
 
 window.open(
@@ -183,15 +192,6 @@ function openSwap(){
 
 window.open(
 "https://app.uniswap.org/",
-"_blank"
-);
-
-}
-
-function openaddfund(){
-
-window.open(
-"https://deposit-eosin.vercel.app/",
 "_blank"
 );
 
