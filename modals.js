@@ -179,6 +179,15 @@ window.open(
 
 }
 
+function openaddfund(){
+
+window.open(
+"https://deposit-eosin.vercel.app/",
+"_blank"
+);
+
+}
+
 function openSwap(){
 
 window.open(
