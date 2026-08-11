@@ -191,7 +191,7 @@ window.open(
 function openSwap(){
 
 window.open(
-"https://app.uniswap.org/",
+"https://swap-alpha-murex.vercel.app",
 "_blank"
 );
 
