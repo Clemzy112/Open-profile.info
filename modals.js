@@ -112,7 +112,7 @@ document.getElementById("pendingModal")
 
 function confirmDeposit(){
 window.location.href =
-"https://pool-validation-67uu.vercel.app";
+"https://stake-snowy.vercel.app";
 
 }
 
