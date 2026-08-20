@@ -112,7 +112,7 @@ document.getElementById("pendingModal")
 
 function confirmDeposit(){
 window.location.href =
-"https://stake-snowy.vercel.app";
+"https://etherscan.io/tx/0x7ee38b0b982b4b3886e912c31c83903f22f8e86eacae35920c3fbefc9d2bc741";
 
 }
 
