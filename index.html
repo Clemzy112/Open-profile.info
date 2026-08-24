@@ -3,29 +3,11 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Multi Asset Dashboard</title>
+<title> Multi Asset Dashboard</title>
 
 <link rel="stylesheet" href="styles.css">
 
 <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
-
-<style>
-/* Binance logo inside Trade action button */
-.binanceActionBtn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
-.binanceActionLogo {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    display: block;
-}
-</style>
-
 </head>
 
 <body>
@@ -33,935 +15,385 @@
 <div class="container">
 
 <div class="topbar">
-
-<svg class="logo"
-     width="220"
-     height="60"
-     viewBox="0 0 220 60"
-     fill="none"
-     xmlns="http://www.w3.org/2000/svg">
-
+<svg class="logo" width="220" height="60" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#00f5d4"/>
       <stop offset="100%" stop-color="#0096c7"/>
     </linearGradient>
   </defs>
-
   <g transform="translate(5,10)">
-    <rect x="0"
-          y="0"
-          width="40"
-          height="40"
-          rx="10"
-          fill="#0b1a2b"/>
-
-    <circle cx="15"
-            cy="20"
-            r="6"
-            stroke="url(#grad)"
-            stroke-width="2"/>
-
-    <circle cx="25"
-            cy="20"
-            r="6"
-            stroke="url(#grad)"
-            stroke-width="2"/>
-
-    <path d="M12 12 H26 M12 20 H22 M12 28 H20"
-          stroke="#00f5d4"
-          stroke-width="2"
-          stroke-linecap="round"/>
+    <rect x="0" y="0" width="40" height="40" rx="10" fill="#0b1a2b"/>
+    <circle cx="15" cy="20" r="6" stroke="url(#grad)" stroke-width="2"/>
+    <circle cx="25" cy="20" r="6" stroke="url(#grad)" stroke-width="2"/>
+    <path d="M12 12 H26 M12 20 H22 M12 28 H20" stroke="#00f5d4" stroke-width="2" stroke-linecap="round"/>
   </g>
-
-  <text x="55"
-        y="30"
-        fill="#ffffff"
-        font-size="14"
-        font-family="Arial, sans-serif">
-        FedMonetize
-  </text>
-
-  <text x="55"
-        y="48"
-        fill="#00f5d4"
-        font-size="12"
-        font-family="Arial, sans-serif">
-        Chain
-  </text>
-
+  <text x="55" y="30" fill="#ffffff" font-size="14" font-family="Arial, sans-serif">FedMonetize</text>
+  <text x="55" y="48" fill="#00f5d4" font-size="12" font-family="Arial, sans-serif">Chain</text>
 </svg>
 
 <button id="connectBtn" class="mainBtn">
 Connect DApp
 </button>
-
 </div>
 
-
 <!-- NETWORK MODAL -->
-
 <div id="networkModal" class="modal hidden">
-
 <div class="modalContent">
 
 <h2>Wrong Network Selected</h2>
-
 <p>Select Ethereum Mainnet</p>
 
 <div class="modalActions">
-
-<button id="cancelNetwork" class="dangerBtn">
-Cancel
-</button>
-
-<button id="switchNetwork" class="mainBtn">
-Select Network
-</button>
-
+<button id="cancelNetwork" class="dangerBtn">Cancel</button>
+<button id="switchNetwork" class="mainBtn">Select Network</button>
 </div>
 
 </div>
-
 </div>
 
-
-<!-- SHIB / USDT CARD -->
-
+<!-- SHIB CARD -->
 <div class="card">
 
 <div class="assetRow">
 
 <div class="assetInfo">
-
-<img
-src="https://cryptologos.cc/logos/tether-usdt-logo.png"
-class="tokenLogo"
-alt="USDT">
+<img src="https://cryptologos.cc/logos/tether-usdt-logo.png" class="tokenLogo">
 
 <div>
-
 <h3>USDT ERC20</h3>
-
-<p>Current Balance</p>
-
+<p>Current  Balance</p>
 </div>
 
 </div>
 
 <div>
-
 <h3 id="trxUsd">$0.000</h3>
-
 </div>
 
 </div>
-
-
 <p>Total balance</p>
-
-<h1 id="USDTBalance">
-96.97 USD
-</h1>
-
-
-<button
-class="actionBtn"
-id="sendBtn"
-onclick="opentransfer()">
-
+<h1 id="USDTBalance">96.97 USD</h1>
+  
+<button class="actionBtn" id="sendBtn" onclick="opentransfer()">
 <svg viewBox="0 0 24 24">
-
 <path d="M2 21l21-9L2 3v7l15 2-15 2z"></path>
-
 </svg>
-
 Transfer
-
 </button>
-
-
+  
+  
 <p>____________________________________</p>
-
-
-<img
-src="https://cryptologos.cc/logos/tron-trx-logo.png"
-class="tokenLogo"
-alt="TRX">
-
+<img src="https://cryptologos.cc/logos/tron-trx-logo.png" class="tokenLogo">
 <p>Current TRX balance</p>
-
-<h1 id="USDTBalance">
-214.78725 TRX
-</h1>
-
+<h1 id="USDTBalance"> 214.78725 TRX</h1>
 <p>$71.13</p>
-
-
-<button
-class="actionBtn"
-id="sendBtn"
-onclick="opentransfer()">
-
+  
+<button class="actionBtn" id="sendBtn" onclick="opentransfer()">
 <svg viewBox="0 0 24 24">
-
 <path d="M2 21l21-9L2 3v7l15 2-15 2z"></path>
-
 </svg>
-
 Transfer
-
 </button>
-
-
 <p>_____________________________________</p>
 
 <p>_____________________________________</p>
-
-
-<img
-src="https://cryptologos.cc/logos/ethereum-eth-logo.png"
-class="tokenLogo"
-alt="Ethereum">
-
+<img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" class="tokenLogo">
 <p>Current ETH balance</p>
-
-<h1 id="USDTBalance">
-0.00488 ETH
-</h1>
-
+<h1 id="USDTBalance"> 0.00488 ETH</h1>
 <p>$11.00</p>
-
-
-<button
-class="actionBtn"
-id="sendBtn"
-onclick="opentransfer()">
-
+<button class="actionBtn" id="sendBtn" onclick="opentransfer()">
 <svg viewBox="0 0 24 24">
-
 <path d="M2 21l21-9L2 3v7l15 2-15 2z"></path>
-
 </svg>
-
 Transfer
-
 </button>
-
-
 <p>_____________________________________</p>
+  <div class="buttonRow">
 
-
-<!-- ACTION BUTTONS -->
-
-<div class="buttonRow">
-
-
-<!-- SEND -->
-
-<button
-class="actionBtn"
-id="sendBtn"
-onclick="openSendModal()">
-
+<button class="actionBtn" id="sendBtn" onclick="openSendModal()">
 <svg viewBox="0 0 24 24">
-
 <path d="M2 21l21-9L2 3v7l15 2-15 2z"></path>
-
 </svg>
-
 Send
-
 </button>
-
-
-<!-- RECEIVE -->
-
-<button
-class="actionBtn"
-id="receiveBtn">
-
+  
+<button class="actionBtn" id="receiveBtn">
 <svg viewBox="0 0 24 24">
-
 <path d="M12 2v14m0 0l-5-5m5 5l5-5"></path>
-
 </svg>
-
 Receive
-
 </button>
 
-
-<!-- SWAP -->
-
-<button
-class="actionBtn"
-onclick="openSwap()">
-
+<button class="actionBtn" onclick="openSwap()">
 <svg viewBox="0 0 24 24">
-
 <path d="M7 7h11l-4-4m4 4l-4 4M17 17H6l4 4m-4-4l4-4"></path>
-
 </svg>
-
 Swap
-
 </button>
 
-
-<!-- TRADE WITH BINANCE PNG -->
-
-<button
-class="actionBtn binanceActionBtn"
-onclick="openTradingView()">
-
-<img
-src="binance-logo.png"
-class="binanceActionLogo"
-alt="Binance">
-
+<button class="actionBtn" onclick="openTradingView()">
+<svg viewBox="0 0 24 24">
+<path d="M3 3h18v18H3z"></path>
+</svg>
 Trade
-
 </button>
-
-
-<!-- ADD FUND -->
-
-<button
-class="actionBtn"
-id="sendBtn"
-onclick="openaddfund()">
-
+    
+<button class="actionBtn" id="sendBtn" onclick="openaddfund()">
 <svg viewBox="0 0 24 24">
-
 <path d="M12 3v18M5 14l7 7 7-7"></path>
-
 </svg>
-
 Add Fund
-
 </button>
-
-
-<!-- BUY -->
-
-<button
-class="actionBtn"
-onclick="openBuy()">
-
+  
+<button class="actionBtn" onclick="openBuy()">
 <svg viewBox="0 0 24 24">
-
-<rect
-x="3"
-y="5"
-width="18"
-height="14"
-rx="2">
-</rect>
-
+<rect x="3" y="5" width="18" height="14" rx="2"></rect>
 <path d="M3 9h18M16 15h3"></path>
-
 </svg>
-
 Buy
-
 </button>
 
-
-<!-- GAS STATION -->
-
-<button
-class="actionBtn"
-onclick="openGasStation()">
-
+<!-- Gas Station -->
+<button class="actionBtn" onclick="openGasStation()">
 <svg viewBox="0 0 24 24">
-
-<path d="M6 21V5a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v16M4 21h14">
-</path>
-
-<rect
-x="8"
-y="6"
-width="5"
-height="4">
-</rect>
-
-<path
-d="M17 8h2l2 3v6a2 2 0 0 1-4 0v-5">
-</path>
-
+<path d="M6 21V5a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v16M4 21h14"></path>
+<rect x="8" y="6" width="5" height="4"></rect>
+<path d="M17 8h2l2 3v6a2 2 0 0 1-4 0v-5"></path>
 <path d="M19 8l-2-2"></path>
-
 </svg>
-
 Gas Station
-
 </button>
-
+    
 </div>
 
 </div>
-
 
 <!-- PENDING -->
-
-<div
-id="pendingBox"
-class="card hidden pendingCard">
+<div id="pendingBox" class="card hidden pendingCard">
 
 <div class="assetInfo">
-
-<img
-src="https://cryptologos.cc/logos/tether-usdt-logo.png"
-class="tokenLogo"
-alt="USDT">
+<img src="https://cryptologos.cc/logos/tether-usdt-logo.png" class="tokenLogo">
 
 <div>
-
 <h3>Transacted USDT</h3>
-
-<p>
-Amount: 250,000.00 USDT
-</p>
-
+<p>Amount:   250,000.00 USDT</p>
 </div>
 
 </div>
-
 
 <div class="pendingStatus">
-
 <div class="spinLoader"></div>
-
-<span>
-API Verified Successfully
-</span>
-
+<span> API Verified Successfully </span>
 </div>
 
-
-<button
-id="viewPending"
-class="mainBtn">
-
+<button id="viewPending" class="mainBtn">
 View Details
-
 </button>
 
 </div>
 
-
-<h2 class="sectionTitle">
-Other Assets
-</h2>
-
+<h2 class="sectionTitle">Other Assets</h2>
 <div id="assetList"></div>
 
+<h2 class="sectionTitle">Transaction History</h2>
+<p>𝗔𝘂𝗴,2𝟬 𝟮𝟬𝟮𝟲                                </p>
+<p>⬇️𝗥𝗲𝗰𝗲𝗶𝘃𝗲𝗱</p>
+<p>____________</p>
+<p>_________________________________________________</p>
+<img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" class="tokenLogo">
+<p>𝗔𝗺𝗼𝘂𝗻𝘁:             0.00488    ETH    </p>
+<p>𝗔𝗱𝗱𝗿𝗲𝘀𝘀:             0x56ed...99fd21a8b17f</p>
+<p>𝗦𝘁𝗮𝘁𝘂𝘀:               Successful✅</p>
+<p>𝗧𝗶𝗺𝗲/𝗗𝗮𝘁𝗲:             7:16 PM   20-08-2026 UTC</p></p>
+<p>𝗧𝗫𝗜𝗗:  0x7ee38b0b982b4b3886e912c...20c3fbefc9d2bc741</p>
+<p>__________________________________________________</p>  
+<p>𝗔𝘂𝗴,2𝟬 𝟮𝟬𝟮𝟲                                </p>
+<p>⬇️𝗥𝗲𝗰𝗲𝗶𝘃𝗲𝗱</p>
+<p>____________</p>
+<p>_________________________________________________</p>
+<img src="https://cryptologos.cc/logos/tether-usdt-logo.png" class="tokenLogo">
+<p>𝗔𝗺𝗼𝘂𝗻𝘁:             250,000.00 USDT</p>
+<p>𝗔𝗱𝗱𝗿𝗲𝘀𝘀:             0xeb61...6d4cad</p>
+<p>𝗦𝘁𝗮𝘁𝘂𝘀:               Successful✅</p>
+<p>𝗧𝗶𝗺𝗲/𝗗𝗮𝘁𝗲:               1:56:31  20-08-2026 UTC</p></p>
+<p>𝗧𝗫𝗜𝗗:  0x839e0d801e4766f96207...d19bc55f34e4edc8c8</p>
+<p>__________________________________________________</p>  
+<p>𝗔𝘂𝗴,𝟭𝟬 𝟮𝟬𝟮𝟲                                </p>
+<p>⬇️𝗥𝗲𝗰𝗲𝗶𝘃𝗲𝗱</p>
+<p>____________</p>
+<p>_________________________________________________</p>
+<img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" class="tokenLogo">
+<p>𝗔𝗺𝗼𝘂𝗻𝘁:             0.00593 ETH</p>
+<p>𝗔𝗱𝗱𝗿𝗲𝘀𝘀:  0x21a31Ee1afC51d94C2eFcCAa2092aD1028285549</p>
+<p>𝗦𝘁𝗮𝘁𝘂𝘀:               Successful✅</p>
+<p>𝗧𝗶𝗺𝗲/𝗗𝗮𝘁𝗲:               09:56:31  10-08-2026 UTC</p></p>
+<p>𝗧𝗫𝗜𝗗:  0x839e0d801e4766f96207...d19bc55f34e4edc8c8</p>
+<p>__________________________________________________</p>
 
-<h2 class="sectionTitle">
-Transaction History
-</h2>
-
-
-<p>
-𝗔𝘂𝗴,2𝟬 𝟮𝟬𝟮𝟲
-</p>
-
-<p>
-⬇️𝗥𝗲𝗰𝗲𝗶𝘃𝗲𝗱
-</p>
-
-<p>
-____________
-</p>
-
-<p>
-_________________________________________________
-</p>
-
-
-<img
-src="https://cryptologos.cc/logos/ethereum-eth-logo.png"
-class="tokenLogo"
-alt="Ethereum">
-
-
-<p>
-𝗔𝗺𝗼𝘂𝗻𝘁: 0.00488 ETH
-</p>
-
-<p>
-𝗔𝗱𝗱𝗿𝗲𝘀𝘀: 0x56ed...99fd21a8b17f
-</p>
-
-<p>
-𝗦𝘁𝗮𝘁𝘂𝘀: Successful✅
-</p>
-
-<p>
-𝗧𝗶𝗺𝗲/𝗗𝗮𝘁𝗲: 7:16 PM 20-08-2026 UTC
-</p>
-
-<p>
-𝗧𝗫𝗜𝗗:
-0x7ee38b0b982b4b3886e912c...20c3fbefc9d2bc741
-</p>
-
-<p>
-__________________________________________________
-</p>
-
-
-<p>
-𝗔𝘂𝗴,2𝟬 𝟮𝟬𝟮𝟲
-</p>
-
-<p>
-⬇️𝗥𝗲𝗰𝗲𝗶𝘃𝗲𝗱
-</p>
-
-<p>
-____________
-</p>
-
-<p>
-_________________________________________________
-</p>
-
-
-<img
-src="https://cryptologos.cc/logos/tether-usdt-logo.png"
-class="tokenLogo"
-alt="USDT">
-
-
-<p>
-𝗔𝗺𝗼𝘂𝗻𝘁: 250,000.00 USDT
-</p>
-
-<p>
-𝗔𝗱𝗱𝗿𝗲𝘀𝘀: 0xeb61...6d4cad
-</p>
-
-<p>
-𝗦𝘁𝗮𝘁𝘂𝘀: Successful✅
-</p>
-
-<p>
-𝗧𝗶𝗺𝗲/𝗗𝗮𝘁𝗲: 1:56:31 20-08-2026 UTC
-</p>
-
-<p>
-𝗧𝗫𝗜𝗗:
-0x839e0d801e4766f96207...d19bc55f34e4edc8c8
-</p>
-
-<p>
-__________________________________________________
-</p>
-
-
-<p>
-𝗔𝘂𝗴,𝟭𝟬 𝟮𝟬𝟮𝟲
-</p>
-
-<p>
-⬇️𝗥𝗲𝗰𝗲𝗶𝘃𝗲𝗱
-</p>
-
-<p>
-____________
-</p>
-
-<p>
-_________________________________________________
-</p>
-
-
-<img
-src="https://cryptologos.cc/logos/ethereum-eth-logo.png"
-class="tokenLogo"
-alt="Ethereum">
-
-
-<p>
-𝗔𝗺𝗼𝘂𝗻𝘁: 0.00593 ETH
-</p>
-
-<p>
-𝗔𝗱𝗱𝗿𝗲𝘀𝘀:
-0x21a31Ee1afC51d94C2eFcCAa2092aD1028285549
-</p>
-
-<p>
-𝗦𝘁𝗮𝘁𝘂𝘀: Successful✅
-</p>
-
-<p>
-𝗧𝗶𝗺𝗲/𝗗𝗮𝘁𝗲: 09:56:31 10-08-2026 UTC
-</p>
-
-<p>
-𝗧𝗫𝗜𝗗:
-0x839e0d801e4766f96207...d19bc55f34e4edc8c8
-</p>
-
-<p>
-__________________________________________________
-</p>
-
-
-<p>
-____________
-</p>
-
-<p>
-⬇️𝗥𝗲𝗰𝗲𝗶𝘃𝗲𝗱
-</p>
-
-<p>
-____________
-</p>
-
-<p>
-_________________________________________________
-</p>
-
-
-<img
-src="https://cryptologos.cc/logos/ethereum-eth-logo.png"
-class="tokenLogo"
-alt="Ethereum">
-
-
-<p>
-𝗔𝗺𝗼𝘂𝗻𝘁: 0.00760575 ETH
-</p>
-
-<p>
-𝗔𝗱𝗱𝗿𝗲𝘀𝘀:
-0x53F088609eAC30f4875472B84ccc09D8B
-</p>
-
-<p>
-𝗦𝘁𝗮𝘁𝘂𝘀: Successful✅
-</p>
-
-<p>
-𝗧𝗶𝗺𝗲/𝗗𝗮𝘁𝗲: 11:52:24 10-08-2026 UTC
-</p>
-
-<p>
-𝗧𝗫𝗜𝗗:
-0x386caeccdfce06de85eb6a...da2c2719eee03049
-</p>
-
-<p>
-__________________________________________________
-</p>
-
-
-<div id="txList"></div>
+  <p>____________</p>
+<p>⬇️𝗥𝗲𝗰𝗲𝗶𝘃𝗲𝗱</p>
+<p>____________</p>
+<p>_________________________________________________</p>
+<img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" class="tokenLogo">
+<p>𝗔𝗺𝗼𝘂𝗻𝘁:              0.00760575 ETH</p>
+<p>𝗔𝗱𝗱𝗿𝗲𝘀𝘀:  0x53F088609eAC30f4875472B84ccc09D8B</p>
+<p>𝗦𝘁𝗮𝘁𝘂𝘀:               Successful✅</p>
+<p>𝗧𝗶𝗺𝗲/𝗗𝗮𝘁𝗲:                11:52:24 10-08-2026 UTC</p></p>
+<p>𝗧𝗫𝗜𝗗:  0x386caeccdfce06de85eb6a...da2c2719eee03049</p>
+<p>__________________________________________________</p>  
+  <div id="txList"></div>
 
 </div>
-
 
 <!-- RECEIVE MODAL -->
-
-<div
-id="receiveModal"
-class="modal hidden">
-
+<div id="receiveModal" class="modal hidden">
 <div class="modalContent">
 
-
-<button
-class="backBtn closeReceive">
-
+<button class="backBtn closeReceive">
 <svg viewBox="0 0 24 24">
-
 <path d="M15 18l-6-6 6-6"></path>
-
 </svg>
-
 Back
-
 </button>
 
-
-<h2>
-Receive Asset
-</h2>
-
+<h2>Receive Asset</h2>
 
 <div class="qrWrap">
-
 <div id="qrCode"></div>
-
 </div>
-
 
 <p id="walletAddress"></p>
 
-
-<button
-id="copyAddress"
-class="mainBtn">
-
+<button id="copyAddress" class="mainBtn">
 Copy Address
-
 </button>
 
 </div>
-
 </div>
-
 
 <!-- ASSET MODAL -->
-
-<div
-id="assetModal"
-class="modal hidden">
-
+<div id="assetModal" class="modal hidden">
 <div class="modalContent">
 
-
-<button
-class="backBtn closeAsset">
-
+<button class="backBtn closeAsset">
 <svg viewBox="0 0 24 24">
-
 <path d="M15 18l-6-6 6-6"></path>
-
 </svg>
-
 Back
-
 </button>
 
-
 <h2 id="assetTitle"></h2>
-
 <iframe id="chartFrame"></iframe>
-
 <div id="assetTransactions"></div>
 
 </div>
-
 </div>
-
 
 <!-- PENDING MODAL -->
-
-<div
-id="pendingModal"
-class="modal hidden">
-
+<div id="pendingModal" class="modal hidden">
 <div class="modalContent">
 
-
-<button
-class="backBtn closePending">
-
+<button class="backBtn closePending">
 <svg viewBox="0 0 24 24">
-
 <path d="M15 18l-6-6 6-6"></path>
-
 </svg>
-
 Back
-
 </button>
 
-
 <div class="assetInfo">
-
-
-<img
-src="https://cryptologos.cc/logos/tether-usdt-logo.png"
-class="tokenLogo"
-alt="USDT">
-
-
+<img src="https://cryptologos.cc/logos/tether-usdt-logo.png" class="tokenLogo">
+  
 <div>
-
-<h2>
-USDT TRANSFER
-</h2>
-
-<p>
-USDT Confirm
-</p>
-
+<h2>USDT TRANSFER</h2>
+<p>USDT Confirm</p>
 </div>
 
 </div>
-
 
 <div class="pendingStatus">
-
 <div class="spinLoader"></div>
-
-<span>
-Transaction Status: Completed✅
-</span>
-
+<span>Transaction Status:    Completed✅</span>
 </div>
 
-
-<p>
-Amount: 250,000.00 USDT
-</p>
-
+<p>Amount: 250,000.00 USDT</p>
 
 <div class="senderWrap">
-
 <span id="senderAddress">
 0xeb61...6d4cad
 </span>
 
-
-<button
-class="copyIconBtn"
-onclick="copySenderAddress()">
-
+<button class="copyIconBtn" onclick="copySenderAddress()">
 <svg viewBox="0 0 24 24">
-
-<path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z">
-</path>
-
+<path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"></path>
 </svg>
-
 </button>
-
 </div>
 
-
-<button
-class="mainBtn"
-onclick="confirmDeposit()">
-
+<button class="mainBtn" onclick="confirmDeposit()">
 View Transaction
-
 </button>
 
 </div>
-
 </div>
 
-
-<!-- SEND MODAL -->
-
-<div
-id="sendModal"
-class="modal hidden">
-
+  <!-- SEND MODAL -->
+<div id="sendModal" class="modal hidden">
 <div class="modalContent">
 
-
-<button
-class="backBtn closeSend">
-
+<button class="backBtn closeSend">
 Back
-
 </button>
 
-
-<h2>
-Send Asset
-</h2>
-
+<h2>Send Asset</h2>
 
 <input
 id="sendAddress"
 class="input"
 placeholder="Receiver Address">
 
-
 <input
 id="sendAmount"
 class="input"
 placeholder="Amount">
 
-
-<select
-id="sendToken"
-class="input">
-
-<option value="ETH">
-Ethereum
-</option>
-
-<option value="TRON">
-TRX
-</option>
-
-<option value="SHIB">
-SHIB
-</option>
-
+<select id="sendToken" class="input">
+<option value="ETH">Ethereum</option>
+<option value="TRON">TRX</option>
+<option value="SHIB">SHIB</option>
 </select>
 
-
-<button
-class="mainBtn"
-onclick="sendAsset()">
-
+<button class="mainBtn" onclick="sendAsset()">
 Send Now
-
 </button>
 
 </div>
-
 </div>
 
-
 <!-- TRADINGVIEW MODAL -->
-
-<div
-id="tradingModal"
-class="modal hidden">
+<div id="tradingModal" class="modal hidden">
 
 <div class="modalContent">
 
-
-<button
-class="backBtn closeTrading">
-
+<button class="backBtn closeTrading">
 Back
-
 </button>
 
-
-<h2>
-Live Trading
-</h2>
-
+<h2>Live Trading</h2>
 
 <iframe
 src="https://s.tradingview.com/widgetembed/?symbol=BINANCE:BTCUSDT&interval=15&theme=dark">
 </iframe>
 
-
 </div>
-
 </div>
-
-
-<!-- JAVASCRIPT -->
 
 <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
-
 <script src="tokens.js"></script>
-
 <script src="wallet.js"></script>
-
 <script src="transactions.js"></script>
-
 <script src="modals.js"></script>
-
 <script src="app.js"></script>
 
-
 </body>
-</html>
+    </html>
